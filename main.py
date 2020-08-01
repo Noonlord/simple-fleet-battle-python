@@ -3,23 +3,23 @@ from os import system
 p1Board = Board()
 p2Board = Board()
 
-input("Player 1 add your ships (press enter): ")
+input("Oyuncu 1 gemilerinizi ekleyin (enter tuşuna basın): ")
 p1Board.addShips()
-input("Press enter to clear screen: ")
+input("Ekranı temizlemek için entera basın: ")
 system("clear")
-input("Player 2 add your ships (press enter): ")
+input("Oyuncu 2 gemilerinizi ekleyin (enter tuşuna basın): ")
 p2Board.addShips()
-input("Press enter to clear your screen: ")
+input("Ekranı temizlemek için entera basın: ")
 system("clear")
 isFinished = False
 while True:
-	input("Player 1 make a hit (press enter): ")
+	input("Oyuncu 1, atış yap (enter tuşuna basın): ")
 	isFinished = p2Board.hit()
 	if isFinished == True:
-		print("Player 1 wins")
+		print("Oyuncu 1 kazandı")
 		break
-	input("Player 2 make a hit (press enter): ")
+	input("Oyuncu 2, atış yap (enter tuşuna basın): ")
 	isFinished = p1Board.hit()
 	if isFinished == True:
-		print("Player 2 wins")
+		print("Oyuncu 2 kazandı")
 		break

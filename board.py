@@ -6,10 +6,10 @@ class Board:
 	def addShips(self):
 		for i in range(5):
 			notSet = True
-			print("Use x,y style coordinates")
+			print("x,y tarzı koordinatlar kullanın")
 			while notSet:
 				self.printBoard()
-				coordinates = input("Add {} unit vertical ship to: ".format(i + 1))
+				coordinates = input(" {} birimlik dikey bir gemiyi ekleyin:: ".format(i + 1))
 				x = int(coordinates.split(",")[0])
 				y = int(coordinates.split(",")[1])
 				counter = 0
@@ -29,13 +29,13 @@ class Board:
 		hit = True
 		finished = False
 		while hit:
-			print("Use x,y style coordinates")
+			print("x,y tarzı koordinatlar kullanın")
 			self.printOpponent()
-			coordinates = input("Give coordinates to hit: ")
+			coordinates = input("Vurulacak koordinatları girin: ")
 			x = int(coordinates.split(",")[0])
 			y = int(coordinates.split(",")[1])
 			if self.board[y][x] == 1:
-				self.board[y][x] = -1
+				self.board[y][x] = 9
 				print("It is a hit!")
 				self.opponentBoard[y][x] = 1
 				finished = self.checkFinish()
