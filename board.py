@@ -24,5 +24,17 @@ class Board:
 						for k in range(i + 1):
 							self.board[y+k][x] = 1
 						notSet = False
-
-
+	def hit(self):
+		hit = True
+		while hit:
+			print("Use x,y style coordinates")
+			coordinates = input("Give coordinates to hit: ")
+			x = int(coordinates.split(",")[0])
+			y = int(coordinates.split(",")[1])
+			if self.board[y][x] == 1:
+				self.board[y][x] = -1
+				print("It is a hit!")
+				self.opponentBoard[y][x] = 1
+			else:
+				self.opponentBoard[y][x] = -1
+				hit = False
