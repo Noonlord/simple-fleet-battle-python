@@ -6,16 +6,20 @@ class Board:
 	def addShips(self):
 		for i in range(5):
 			notSet = True
+			print("Use x,y style coordinates")
 			while notSet:
-				print("Use x,y style coordinates")
+				self.printBoard()
 				coordinates = input("Add {} unit vertical ship to: ".format(i + 1))
 				x = int(coordinates.split(",")[0])
 				y = int(coordinates.split(",")[1])
 				counter = 0
 				for j in range(i + 1):
-					if self.board[y+j][x] == 0:
-						counter = counter + 1
-					else:
+					try:
+						if self.board[y+j][x] == 0:
+							counter = counter + 1
+						else:
+							break
+					except:
 						break
 					if counter == (i + 1):
 						for k in range(i + 1):
@@ -43,3 +47,10 @@ class Board:
 			for j in range(10):
 				lineToPrint = lineToPrint + " " + str(int(self.board[i][j]))
 			print(lineToPrint)
+	def checkFinish():
+		isFinished = True
+		for i in range(10):
+			for j in range(10):
+				if int(self.board[i][j]) == 1:
+					isFinished = False
+		return isFinished

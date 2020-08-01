@@ -11,5 +11,6 @@ input("Player 2 add your ships (press enter): ")
 p2Board.addShips()
 input("Press enter to clear your screen: ")
 system("clear")
+isFinished = False
 
 
