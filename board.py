@@ -42,7 +42,7 @@ class Board:
 				if finished:
 					return True
 			else:
-				self.opponentBoard[y][x] = -1
+				self.opponentBoard[y][x] = 9
 				hit = False
 		return False
 	def printBoard(self):
