@@ -36,7 +36,7 @@ class Board:
 			y = int(coordinates.split(",")[1])
 			if self.board[y][x] == 1:
 				self.board[y][x] = 9
-				print("It is a hit!")
+				print("Vurdun!")
 				self.opponentBoard[y][x] = 1
 				finished = self.checkFinish()
 				if finished:
