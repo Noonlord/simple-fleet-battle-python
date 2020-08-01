@@ -27,8 +27,10 @@ class Board:
 						notSet = False
 	def hit(self):
 		hit = True
+		finished = False
 		while hit:
 			print("Use x,y style coordinates")
+			self.printOpponent()
 			coordinates = input("Give coordinates to hit: ")
 			x = int(coordinates.split(",")[0])
 			y = int(coordinates.split(",")[1])
@@ -36,9 +38,13 @@ class Board:
 				self.board[y][x] = -1
 				print("It is a hit!")
 				self.opponentBoard[y][x] = 1
+				finished = self.checkFinish()
+				if finished:
+					return True
 			else:
 				self.opponentBoard[y][x] = -1
 				hit = False
+		return False
 	def printBoard(self):
 		print("   0 1 2 3 4 5 6 7 8 9 ")
 		print(" ")
@@ -47,7 +53,15 @@ class Board:
 			for j in range(10):
 				lineToPrint = lineToPrint + " " + str(int(self.board[i][j]))
 			print(lineToPrint)
-	def checkFinish():
+	def printOpponent(self):
+		print("   0 1 2 3 4 5 6 7 8 9 ")
+		print(" ")
+		for i in range(10):
+			lineToPrint = str(i) +  " "
+			for j in range(10):
+				lineToPrint = lineToPrint + " " + str(int(self.opponentBoard[i][j]))
+			print(lineToPrint)
+	def checkFinish(self):
 		isFinished = True
 		for i in range(10):
 			for j in range(10):
