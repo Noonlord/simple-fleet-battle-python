@@ -16,10 +16,8 @@ class Board:
 					if self.board[y+j][x] == 0:
 						print("{},{}".format(y+j,x))
 						counter = counter + 1
-						print("ct={}".format(counter))
 					else:
 						break
-					print("anan {}".format(counter))
 					if counter == (i + 1):
 						for k in range(i + 1):
 							self.board[y+k][x] = 1
