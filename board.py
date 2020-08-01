@@ -14,7 +14,6 @@ class Board:
 				counter = 0
 				for j in range(i + 1):
 					if self.board[y+j][x] == 0:
-						print("{},{}".format(y+j,x))
 						counter = counter + 1
 					else:
 						break
