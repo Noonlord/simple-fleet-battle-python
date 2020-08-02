@@ -10,8 +10,13 @@ class Board:
 			while notSet:
 				self.printBoard()
 				coordinates = input("Add {} unit vertical ship to: ".format(i + 1))
-				x = int(coordinates.split(",")[0])
-				y = int(coordinates.split(",")[1])
+				try:
+					x = int(coordinates.split(",")[0])
+					y = int(coordinates.split(",")[1])
+				except:
+					print("Wrong coordinates try again.")
+					x = int(coordinates.split(",")[0])
+					y = int(coordinates.split(",")[1])
 				counter = 0
 				for j in range(i + 1):
 					try:
@@ -31,11 +36,16 @@ class Board:
 		while hit:
 			print("Use x,y style coordinates")
 			self.printOpponent()
-			coordinates = input("Give coordinates to hit: ")
-			x = int(coordinates.split(",")[0])
-			y = int(coordinates.split(",")[1])
+			coordinates = input("Give coordinates to hit: : ")
+			try:
+				x = int(coordinates.split(",")[0])
+				y = int(coordinates.split(",")[1])
+			except:
+				print("Wrong coordinates try again.")
+				x = int(coordinates.split(",")[0])
+				y = int(coordinates.split(",")[1])
 			if self.board[y][x] == 1:
-				self.board[y][x] = -1
+				self.board[y][x] = 9
 				print("It is a hit!")
 				self.opponentBoard[y][x] = 1
 				finished = self.checkFinish()
