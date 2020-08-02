@@ -59,7 +59,13 @@ class Board:
 		for i in range(10):
 			lineToPrint = str(i) +  " "
 			for j in range(10):
-				lineToPrint = lineToPrint + " " + str(int(self.opponentBoard[i][j]))
+				if int(self.opponentBoard[i][j]) == 0:
+					char = "#"
+				elif int(self.opponentBoard[i][j]) == 9:
+					char = "?"
+				elif int(self.opponentBoard[i][j]) == 1:
+					char = "X"
+				lineToPrint = lineToPrint + " " + char
 			print(lineToPrint)
 	def checkFinish(self):
 		isFinished = True
