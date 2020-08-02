@@ -10,8 +10,13 @@ class Board:
 			while notSet:
 				self.printBoard()
 				coordinates = input(" {} birimlik dikey bir gemiyi ekleyin:: ".format(i + 1))
-				x = int(coordinates.split(",")[0])
-				y = int(coordinates.split(",")[1])
+				try:
+					x = int(coordinates.split(",")[0])
+					y = int(coordinates.split(",")[1])
+				except:
+					print("Yanlış yazdın, tekrar dene")
+					x = int(coordinates.split(",")[0])
+					y = int(coordinates.split(",")[1])
 				counter = 0
 				for j in range(i + 1):
 					try:
@@ -32,8 +37,13 @@ class Board:
 			print("x,y tarzı koordinatlar kullanın")
 			self.printOpponent()
 			coordinates = input("Vurulacak koordinatları girin: ")
-			x = int(coordinates.split(",")[0])
-			y = int(coordinates.split(",")[1])
+			try:
+				x = int(coordinates.split(",")[0])
+				y = int(coordinates.split(",")[1])
+			except:
+				print("Yanlış yazdın, tekrar dene")
+				x = int(coordinates.split(",")[0])
+				y = int(coordinates.split(",")[1])
 			if self.board[y][x] == 1:
 				self.board[y][x] = 9
 				print("Vurdun!")
